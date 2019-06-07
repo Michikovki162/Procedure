@@ -1,9 +1,5 @@
-﻿  main.cpp
-  Fish.cpp
-  Container.cpp
-  Bird.cpp
+﻿  Bird.cpp
   Beast.cpp
-  Animal.cpp
   Создание кода...
   Timp1PRO.vcxproj -> C:\Users\User\Documents\GitHubPr\Procedure\x64\Debug\Timp1PRO.exe
   Timp1PRO.vcxproj -> C:\Users\User\Documents\GitHubPr\Procedure\x64\Debug\Timp1PRO.pdb (Full PDB)

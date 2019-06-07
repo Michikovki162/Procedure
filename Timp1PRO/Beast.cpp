@@ -8,14 +8,14 @@ void OutBeast(Beast *b, ofstream &ofst)
 	ofst << "Тип питания: "; //<< t->flying << endl;
 	switch (b->type)
 	{
+	case 0:
+		ofst << "Травоядный " << endl;
+		break;
 	case 1:
-		ofst << "Травоядный ";
+		ofst << "Насекомоядный " << endl;
 		break;
 	case 2:
-		ofst << "Насекомоядный ";
-		break;
-	case 3:
-		ofst << "Хищник ";
+		ofst << "Хищник " << endl;
 		break;
 	default:
 		break;

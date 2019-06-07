@@ -7,11 +7,11 @@ void OutBird (Bird *t, ofstream &ofst)
 	ofst << "Отношение к перелету: "; //<< t->flying << endl;
 	if (t->flying == false)
 	{
-		ofst << "Неперелетная ";
+		ofst << "Неперелетная " << endl;
 	}
 	else
 	{
-		ofst << "Перелетная ";
+		ofst << "Перелетная " << endl;
 	}
 }
 Bird * InBird(Bird * t, ifstream &ifst)
