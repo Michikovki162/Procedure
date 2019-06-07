@@ -53,6 +53,10 @@ int addnode(container &c, ifstream &ifst)
 }
 void Out(container & c, ofstream &ofst)
 {
+	if (c.count != 0)
+	{
+		Sort(c);
+	}
 	Node* current = c.Top;
 	ofst << " Container contains " << c.count
 		<< " elements." << endl;
@@ -88,57 +92,62 @@ int namelength(Animal &s)
 	return length;
 }
 
-oid container::Sort()
+void Sort(container & c)
 {
 	Node* current;
-	current = Top;
+	current = c.Top;
 	Node* currentnext = current->Next;
-	for (int i = 1; i < count; i++)
+	for (int i = 1; i < c.count; i++)
 	{
-		for (int j = 1; j < count; j++)
+		for (int j = 1; j < c.count; j++)
 		{
-			if (current->data->Compare(*current->Next->data))
+			if (Compare(current->data, current->Next->data)) 
 			{
-				current->Processsort(Top);
-				current = current->Next;
+				Processsort(c.Top, current);
 			}
 			else
 				current = current->Next;
 		}
-		current = Top;
+		current = c.Top;
 	}
 }
-void container::Node::Processsort(Node *& Top)
+void Processsort(Node *& headt, Node *& current)
 {
-	Node* currentnext = this->Next;
-	if (this == Top)
+	Node* currentnext = current->Next;
+	if (current == headt)
 	{
-		if (this->Next->Next == this)
+		if (current->Next->Next == current)
 		{
-			Top = this->Next;
+			headt = current->Next;
 		}
 		else
 		{
-			this->castl();
+			castl(current);
+			headt = current;
 		}
 	}
 	else
 	{
-		if (this->Next->Next == this)
+		if (current->Next->Next == current)
 		{
-			Top = this->Next;
+			headt = current->Next;
 		}
 		else
-		{
-			this->castl();
-		}
+			castl(current);
 	}
 }
-void container::Node::castl()
+void castl(Node* &current)
 {
-	Node* currentnext = this->Next;
-	Animal* q1 = this->data;
-	Animal* q2 = currentnext->data;
-	this->data = q2;
-	currentnext->data = q1;
+	Node* currentnext = current->Next;
+	Node* q1 = current;
+	Node* q2 = currentnext;
+	current = q2;
+	currentnext = q1;
+	currentnext->Next = current->Next;
+	current->Next = currentnext;
+	current->Prev = currentnext->Prev;
+	currentnext->Prev = current;
+	currentnext = current->Next;
+	currentnext->Next->Prev = currentnext;
+	current->Prev->Next = current;
 }

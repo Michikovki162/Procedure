@@ -1,6 +1,7 @@
 #include "Animal.h"
 #include "Fish.h"
 #include "Bird.h"
+#include "Container.h"
 #include <iostream>
 #include <fstream>
 #include "string"
@@ -48,7 +49,7 @@ void Out(Animal *s, ofstream &ofst)
 		cout << "Некорректное животное " << endl;
 	}
 }
-bool Animal::Compare(Animal & other)
+bool Compare(Animal * first, Animal *second)
 {
-	return namelength() < other.namelength();
+	return namelength(*first) < namelength(*second);
 }

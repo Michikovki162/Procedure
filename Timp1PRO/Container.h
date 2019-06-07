@@ -25,4 +25,7 @@ int namelength(Animal &s);
 void Out(container & c, ofstream &ofst);
 void Clear(container & c);
 void Init(container & c);
+void Sort(container &c);
+void Processsort(Node*& headt, Node*& current);
+void castl(Node* &current);
 #endif

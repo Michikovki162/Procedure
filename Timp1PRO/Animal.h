@@ -12,4 +12,5 @@ struct Animal
 
 Animal * In(ifstream &ifst);
 void Out(Animal *s, ofstream &ofst);
+bool Compare(Animal * first, Animal * second);
 #endif
