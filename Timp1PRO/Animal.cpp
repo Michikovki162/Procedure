@@ -17,6 +17,7 @@ Animal * In(ifstream &ifst)
 		s->key = FISH;
 		s->obj = (void*)InFish(p, ifst);
 		ifst >> s->name;
+		s->length = s->name.length();
 		return s;
 	}
 	else if (key == 2)
@@ -25,6 +26,7 @@ Animal * In(ifstream &ifst)
 		s->obj = (void*)InBird(t, ifst);
 		s->key = BIRD;
 		ifst >> s->name;
+		s->length = s->name.length();
 		return s;
 	}
 	else
@@ -38,11 +40,13 @@ void Out(Animal *s, ofstream &ofst)
 	{
 	case FISH:
 		ofst << "Это рыба. Название: " << s->name << endl;
-		OutFish((Fish*)s, ofst);
+		ofst << "Длина названия: " << s->length << " символа(ов) " << endl;
+		OutFish((Fish*)s->obj, ofst);
 		break;
 	case BIRD:
 		ofst << "Это птица. Название: " << s->name << endl;
-		OutBird((Bird*)s, ofst);
+		ofst << "Длина названия: " << s->length << " символа(ов) " << endl;
+		OutBird((Bird*)s->obj, ofst);
 		break;
 	default:
 		cout << "Некорректное животное " << endl;
