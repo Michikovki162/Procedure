@@ -60,6 +60,7 @@ void Out(container & c, ofstream &ofst)
 	{
 		ofst << j << ": ";
 		Out(current->data, ofst);
+		ofst << "Длина названия: " << namelength(*(current->data)) << endl;
 		current = current->Next;
 	}
 }
@@ -80,4 +81,64 @@ void Init(container & c)
 {
 	c.Top = nullptr;
 	c.count = 0;
+}
+int namelength(Animal &s)
+{
+	int length = s.name.length();
+	return length;
+}
+
+oid container::Sort()
+{
+	Node* current;
+	current = Top;
+	Node* currentnext = current->Next;
+	for (int i = 1; i < count; i++)
+	{
+		for (int j = 1; j < count; j++)
+		{
+			if (current->data->Compare(*current->Next->data))
+			{
+				current->Processsort(Top);
+				current = current->Next;
+			}
+			else
+				current = current->Next;
+		}
+		current = Top;
+	}
+}
+void container::Node::Processsort(Node *& Top)
+{
+	Node* currentnext = this->Next;
+	if (this == Top)
+	{
+		if (this->Next->Next == this)
+		{
+			Top = this->Next;
+		}
+		else
+		{
+			this->castl();
+		}
+	}
+	else
+	{
+		if (this->Next->Next == this)
+		{
+			Top = this->Next;
+		}
+		else
+		{
+			this->castl();
+		}
+	}
+}
+void container::Node::castl()
+{
+	Node* currentnext = this->Next;
+	Animal* q1 = this->data;
+	Animal* q2 = currentnext->data;
+	this->data = q2;
+	currentnext->data = q1;
 }

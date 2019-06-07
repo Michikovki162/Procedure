@@ -1,0 +1,9 @@
+﻿  main.cpp
+  Fish.cpp
+  Container.cpp
+c:\users\user\documents\githubpr\procedure\timp1pro\container.cpp(87): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Bird.cpp
+  Animal.cpp
+  Создание кода...
+  Timp1PRO.vcxproj -> C:\Users\User\Documents\GitHubPr\Procedure\x64\Debug\Timp1PRO.exe
+  Timp1PRO.vcxproj -> C:\Users\User\Documents\GitHubPr\Procedure\x64\Debug\Timp1PRO.pdb (Full PDB)

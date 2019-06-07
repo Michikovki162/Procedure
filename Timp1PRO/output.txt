@@ -1,5 +1,9 @@
 Filled container. 
  Container contains 2 elements.
 0: Это рыба. Название: Карп
-Место обитания: Река 
+Место обитания: Озеро 
+Длина названия: 4
 1: Это птица. Название: Синичка
+Отношение к перелету: Неперелетная Длина названия: 7
+Empty container. 
+ Container contains 0 elements.
