@@ -8,6 +8,7 @@ struct Animal
 	opt key;
 	void* obj;
 	string name;
+	int age;
 };
 
 Animal * In(ifstream &ifst);
