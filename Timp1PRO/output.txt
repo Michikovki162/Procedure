@@ -1,1 +1,7 @@
 Filled container. 
+ Container contains 2 elements.
+0: Это рыба. Название: Карп
+Место обитания: Озеро 
+1: Это птица. Название: Синичка
+Отношение к перелету: Неперелетная Empty container. 
+ Container contains 0 elements.
