@@ -2,7 +2,7 @@
 #define Animal_H
 #include <fstream>
 using namespace std;
-enum opt { FISH, BIRD };
+enum opt { FISH, BIRD, BEAST };
 struct Animal 
 {
 	opt key;
