@@ -38,11 +38,11 @@ void Out(Animal *s, ofstream &ofst)
 	{
 	case FISH:
 		ofst << "Это рыба. Название: " << s->name << endl;
-		OutFish((Fish*)s, ofst);
+		OutFish((Fish*)s->obj, ofst);
 		break;
 	case BIRD:
 		ofst << "Это птица. Название: " << s->name << endl;
-		OutBird((Bird*)s, ofst);
+		OutBird((Bird*)s->obj, ofst);
 		break;
 	default:
 		cout << "Некорректное животное " << endl;
