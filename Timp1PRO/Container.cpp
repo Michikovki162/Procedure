@@ -60,6 +60,7 @@ void Out(container & c, ofstream &ofst)
 	{
 		ofst << j << ": ";
 		Out(current->data, ofst);
+		ofst << "Длина названия: " << namelength(*(current->data))<< endl;
 		current = current->Next;
 	}
 }
@@ -80,4 +81,9 @@ void Init(container & c)
 {
 	c.Top = nullptr;
 	c.count = 0;
+}
+int namelength(Animal &s)
+{
+	int length = s.name.length();
+	return length;
 }

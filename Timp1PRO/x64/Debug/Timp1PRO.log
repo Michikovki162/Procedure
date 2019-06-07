@@ -1,3 +1,9 @@
-﻿  Bird.cpp
+﻿  Container.cpp
+c:\users\user\documents\githubpr\procedure\timp1pro\container.cpp(87): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Создание кода...
+  Компиляция...
+  main.cpp
+  Создание кода...
+  LINK : не найден или не выполнена сборка C:\Users\User\Documents\GitHubPr\Procedure\x64\Debug\Timp1PRO.exe при последней инкрементной компоновке; выполняется полная компоновка
   Timp1PRO.vcxproj -> C:\Users\User\Documents\GitHubPr\Procedure\x64\Debug\Timp1PRO.exe
   Timp1PRO.vcxproj -> C:\Users\User\Documents\GitHubPr\Procedure\x64\Debug\Timp1PRO.pdb (Full PDB)
