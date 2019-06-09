@@ -2,6 +2,7 @@
 #include "Fish.h"
 #include "Bird.h"
 #include "Container.h"
+#include "Beast.h"
 #include <iostream>
 #include <fstream>
 #include "string"
@@ -27,6 +28,14 @@ Animal * In(ifstream &ifst)
 		ifst >> s->name;
 		return s;
 	}
+	else if (key == 3)
+	{
+		Beast* b = new Beast;
+		s->obj = (void*)InBeast(b, ifst);
+		s->key = BEAST;
+		ifst >> s->name;
+		return s;
+	}
 	else
 	{
 		return 0;
@@ -43,6 +52,10 @@ void Out(Animal *s, ofstream &ofst)
 	case BIRD:
 		ofst << "Это птица. Название: " << s->name << endl;
 		OutBird((Bird*)s->obj, ofst);
+		break;
+	case BEAST:
+		ofst << "Это зверь. Название: " << s->name << endl;
+		OutBeast((Beast*)s->obj, ofst);
 		break;
 	default:
 		cout << "Некорректное животное " << endl;
