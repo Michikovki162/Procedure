@@ -18,6 +18,7 @@ Animal * In(ifstream &ifst)
 		s->key = FISH;
 		s->obj = (void*)InFish(p, ifst);
 		ifst >> s->name;
+		ifst >> s->age;
 		return s;
 	}
 	else if (key == 2)
@@ -26,6 +27,7 @@ Animal * In(ifstream &ifst)
 		s->obj = (void*)InBird(t, ifst);
 		s->key = BIRD;
 		ifst >> s->name;
+		ifst >> s->age;
 		return s;
 	}
 	else if (key == 3)
@@ -47,14 +49,17 @@ void Out(Animal *s, ofstream &ofst)
 	{
 	case FISH:
 		ofst << "Это рыба. Название: " << s->name << endl;
+		ofst << "Возраст: " << s->age << endl;
 		OutFish((Fish*)s->obj, ofst);
 		break;
 	case BIRD:
 		ofst << "Это птица. Название: " << s->name << endl;
+		ofst << "Возраст: " << s->age << endl;
 		OutBird((Bird*)s->obj, ofst);
 		break;
 	case BEAST:
 		ofst << "Это зверь. Название: " << s->name << endl;
+		ofst << "Возраст: " << s->age << endl;
 		OutBeast((Beast*)s->obj, ofst);
 		break;
 	default:
