@@ -25,10 +25,10 @@ int main(int argc, char* argv[])
 	In(c, ifst);
 	ofst << "Filled container. " << endl;
 
-	Out(c, ofst);
+	Out_only_Fish(c, ofst);
 	Clear(c);
 	ofst << "Empty container. " << endl;
-	Out(c, ofst);
+	Out_only_Fish(c, ofst);
 	cout << "Stop" << endl;
 	system("pause");
 	cin >> a;

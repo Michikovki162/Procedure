@@ -1,5 +1,4 @@
 Filled container. 
- Container contains 2 elements.
 0: Это рыба. Название: Карп
 Возраст: 9
 Место обитания: Озеро 

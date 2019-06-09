@@ -22,6 +22,7 @@ struct container
 void In(container &c, ifstream &ifst);
 int addnode(container &c, ifstream &ifst);
 int namelength(Animal &s);
+void Out_only_Fish(container &c, ofstream &ofst);
 void Out(container & c, ofstream &ofst);
 void Clear(container & c);
 void Init(container & c);

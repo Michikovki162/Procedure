@@ -151,3 +151,21 @@ void castl(Node* &current)
 	currentnext->Next->Prev = currentnext;
 	current->Prev->Next = current;
 }
+void Out_only_Fish(container &c, ofstream &ofst)
+{
+	Node* current = c.Top;
+	for (int i = 0; i < c.count; i++)
+	{
+		ofst << i << ": ";
+		if (current->data->key == FISH)
+		{
+			Out(current->data, ofst);
+		}
+		else
+		{
+			ofst << endl;
+		}
+		current = current->Next;
+
+	}
+}
