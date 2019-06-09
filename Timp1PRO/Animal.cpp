@@ -14,7 +14,6 @@ Animal * In(ifstream &ifst)
 	if (key == 1)
 	{
 		Fish* p = new Fish;
-		//s.obj = (void*)InFish(*p, ifst);
 		s->key = FISH;
 		s->obj = (void*)InFish(p, ifst);
 		ifst >> s->name;
