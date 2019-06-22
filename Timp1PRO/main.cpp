@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
 		system("pause");
 		exit(1);
 	}
+	setlocale(LC_ALL, "Russian");
 	ifstream ifst(argv[1]);
 	if (!ifst)
 	{
