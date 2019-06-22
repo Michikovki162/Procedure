@@ -68,5 +68,11 @@ void Out(Animal *s, ofstream &ofst)
 }
 bool Compare(Animal * first, Animal *second)
 {
+	if (namelength(*first) < namelength(*second) != true && namelength(*first) < namelength(*second) != false)
+	{
+		cout << "Произошла ошибка при сравнении длин названий\n";
+		system("pause");
+		exit(1);
+	}
 	return namelength(*first) < namelength(*second);
 }

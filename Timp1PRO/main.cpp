@@ -18,17 +18,28 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 	ifstream ifst(argv[1]);
-	ofstream ofst(argv[2]);	cout << "Start" << endl;
+	if (!ifst)
+	{
+		cout << "Файл ввода не открыт!\n";
+		system("pause");
+		exit(1);
+	}
+	ofstream ofst(argv[2]);	if (!ofst)
+	{
+		cout << "Файл вывода не открыт!\n";
+		system("pause");
+		exit(1);
+	}	cout << "Start" << endl;
 	setlocale(LC_ALL, "Russian");
 	container c;
 	Init(c);
 	In(c, ifst);
 	ofst << "Filled container. " << endl;
 
-	Out_only_Fish(c, ofst);
+	Out(c, ofst);
 	Clear(c);
 	ofst << "Empty container. " << endl;
-	Out_only_Fish(c, ofst);
+	Out(c, ofst);
 	cout << "Stop" << endl;
 	system("pause");
 	cin >> a;
