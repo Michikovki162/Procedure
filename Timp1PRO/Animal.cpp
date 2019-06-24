@@ -36,6 +36,7 @@ Animal * In(ifstream &ifst)
 		s->obj = (void*)InBeast(b, ifst);
 		s->key = BEAST;
 		ifst >> s->name;
+		ifst >> s->age;
 		return s;
 	}
 	else

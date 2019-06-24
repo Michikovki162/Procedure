@@ -38,6 +38,7 @@ int main(int argc, char* argv[])
 	ofst << "Filled container. " << endl;
 
 	Out(c, ofst);
+	MultiMethod(c, ofst);
 	Clear(c);
 	ofst << "Empty container. " << endl;
 	Out(c, ofst);

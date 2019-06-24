@@ -169,3 +169,72 @@ void Out_only_Fish(container &c, ofstream &ofst)
 
 	}
 }
+void MultiMethod(container &c, ofstream &ofst)
+{
+	ofst << "Мультиметод " << endl;
+	Node* current_i = c.Top;
+	for (int i = 0; i < c.count; i++)
+	{
+		Node* current_j = current_i->Next;
+		for (int j = 0; j < c.count; j++)
+		{
+			switch (current_i->data->key)
+			{
+			case BIRD:
+				switch (current_j->data->key)
+				{
+				case BIRD:
+					ofst << "Птица и птица" << endl;
+					break;
+				case FISH:
+					ofst << "Птица и рыба" << endl;
+					break;
+				case BEAST:
+					ofst << "Птица и зверь" << endl;
+					break;
+				default:
+					ofst << "Неправильный тип" << endl;
+				}
+				break;
+			case FISH:
+				switch (current_j->data->key)
+				{
+				case BIRD:
+					ofst << "Рыба и птица" << endl;
+					break;
+				case FISH:
+					ofst << "Рыба и рыба" << endl;
+					break;
+				case BEAST:
+					ofst << "Рыба и зверь" << endl;
+					break;
+				default:
+					ofst << "Неправильный тип" << endl;
+				}
+				break;
+			case BEAST:
+				switch (current_j->data->key)
+				{
+				case BEAST:
+					ofst << "Зверь и зверь" << endl;
+					break;
+				case BIRD:
+					ofst << "Зверь и птица" << endl;
+					break;
+				case FISH:
+					ofst << "Зверь и рыба" << endl;
+					break;
+				default:
+					ofst << "Неправильный тип" << endl;
+				}
+				break;
+			default:
+				ofst << "Неправильный тип" << endl;
+			}
+			Out(current_i->data, ofst);
+			Out(current_j->data, ofst);
+			current_j = current_j->Next;
+		}
+		current_i = current_i->Next;
+	}
+}

@@ -29,4 +29,5 @@ void Init(container & c);
 void Sort(container &c);
 void Processsort(Node*& headt, Node*& current);
 void castl(Node* &current);
+void MultiMethod(container &c, ofstream &ofst);
 #endif
