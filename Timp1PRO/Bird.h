@@ -3,10 +3,10 @@
 #include <fstream>
 #include "Animal.h"
 using namespace std;
-struct Bird 
+struct bird 
 {
 	bool flying;
 };
-void OutBird(Bird *t, ofstream &ofst);
-Bird * InBird(Bird *t, ifstream &ifst);
+void Out_Bird(bird *t, ofstream &ofst);
+bird * In_Bird(bird *t, ifstream &ifst);
 #endif

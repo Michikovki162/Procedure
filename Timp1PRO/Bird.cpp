@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-void OutBird (Bird *t, ofstream &ofst)
+void Out_Bird (bird *t, ofstream &ofst)
 {
 	if (t->flying != false && t->flying != true)
 	{
@@ -20,7 +20,7 @@ void OutBird (Bird *t, ofstream &ofst)
 		ofst << "Перелетная " << endl;
 	}
 }
-Bird * InBird(Bird * t, ifstream &ifst)
+bird * In_Bird(bird * t, ifstream &ifst)
 {
 	ifst >> t->flying;
 	if (t->flying != false && t->flying != true)

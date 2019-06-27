@@ -3,7 +3,7 @@
 #include <fstream>
 #include <cstring>
 using namespace std;
-void OutBeast(Beast *b, ofstream &ofst)
+void Out_Beast(beast *b, ofstream &ofst)
 {
 	ofst << "Тип питания: "; 
 	if (b->type < 0 || b->type > 2)
@@ -27,7 +27,7 @@ void OutBeast(Beast *b, ofstream &ofst)
 		break;
 	}
 }
-Beast* InBeast(Beast * b, ifstream & ifst)
+beast* In_Beast(beast * b, ifstream & ifst)
 {
 	int food;
 	ifst >> food;
@@ -40,13 +40,13 @@ Beast* InBeast(Beast * b, ifstream & ifst)
 	switch (food)
 	{
 	case 1:
-		b->type = Beast::food::herbal;
+		b->type = beast::food::herbal;
 		break;
 	case 2:
-		b->type = Beast::food::insects;
+		b->type = beast::food::insects;
 		break;
 	case 3:
-		b->type = Beast::food::meat;
+		b->type = beast::food::meat;
 		break;
 	default:
 		break;

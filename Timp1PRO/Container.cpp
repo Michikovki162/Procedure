@@ -9,17 +9,17 @@ void In(container &c, ifstream &ifst)
 {
 	while (!ifst.eof())
 	{
-		if (addnode(c, ifst) != 0)
+		if (Add_node(c, ifst) != 0)
 			c.count++;
 	}
 }
-int addnode(container &c, ifstream &ifst)
+int Add_node(container &c, ifstream &ifst)
 {
 	if (c.count == 0)
 	{
-		c.Top = new Node;
-		c.Top->Next = c.Top;
-		c.Top->Prev = c.Top;
+		c.Top = new node;
+		c.Top->next = c.Top;
+		c.Top->prev = c.Top;
 		if ((c.Top->data = In(ifst)) != 0)
 		{
 			return 1;
@@ -32,17 +32,17 @@ int addnode(container &c, ifstream &ifst)
 	}
 	else
 	{
-		Node *current = c.Top;
+		node *current = c.Top;
 		for (int j = 1; j < c.count; j++)
 		{
-			current = current->Next;
+			current = current->next;
 		}
-		current->Next = new Node;
-		if ((current->Next->data = In(ifst)) != 0)
+		current->next = new node;
+		if ((current->next->data = In(ifst)) != 0)
 		{
-			c.Top->Prev = current->Next;
-			current->Next->Prev = current;
-			current->Next->Next = c.Top;
+			c.Top->prev = current->next;
+			current->next->prev = current;
+			current->next->next = c.Top;
 			return 1;
 		}
 		else
@@ -57,25 +57,25 @@ void Out(container & c, ofstream &ofst)
 	{
 		Sort(c);
 	}
-	Node* current = c.Top;
+	node* current = c.Top;
 	ofst << " Container contains " << c.count
 		<< " elements." << endl;
 	for (int j = 0; j < c.count; j++)
 	{
 		ofst << j << ": ";
 		Out(current->data, ofst);
-		ofst << "Длина названия: " << namelength(*(current->data)) << endl;
-		current = current->Next;
+		ofst << "Длина названия: " << Name_length(*(current->data)) << endl;
+		current = current->next;
 	}
 }
 void Clear(container & c)
 {
-	Node* current = c.Top;
+	node* current = c.Top;
 	int i = 1;
 	while (i < c.count)
 	{
-		current = current->Next;
-		delete current->Prev;
+		current = current->next;
+		delete current->prev;
 		i++;
 	}
 	delete current;
@@ -86,7 +86,7 @@ void Init(container & c)
 	c.Top = nullptr;
 	c.count = 0;
 }
-int namelength(Animal &s)
+int Name_length(animal &s)
 {
 	int length = s.name.length();
 	return length;
@@ -94,31 +94,31 @@ int namelength(Animal &s)
 
 void Sort(container & c)
 {
-	Node* current;
+	node* current;
 	current = c.Top;
-	Node* currentnext = current->Next;
+	node* currentnext = current->next;
 	for (int i = 1; i < c.count; i++)
 	{
 		for (int j = 1; j < c.count; j++)
 		{
-			if (Compare(current->data, current->Next->data)) 
+			if (Compare(current->data, current->next->data)) 
 			{
-				Processsort(c.Top, current);
+				Process_sort(c.Top, current);
 			}
 			else
-				current = current->Next;
+				current = current->next;
 		}
 		current = c.Top;
 	}
 }
-void Processsort(Node *& headt, Node *& current)
+void Process_sort(node *& headt, node *& current)
 {
-	Node* currentnext = current->Next;
+	node* currentnext = current->next;
 	if (current == headt)
 	{
-		if (current->Next->Next == current)
+		if (current->next->next == current)
 		{
-			headt = current->Next;
+			headt = current->next;
 		}
 		else
 		{
@@ -128,32 +128,32 @@ void Processsort(Node *& headt, Node *& current)
 	}
 	else
 	{
-		if (current->Next->Next == current)
+		if (current->next->next == current)
 		{
-			headt = current->Next;
+			headt = current->next;
 		}
 		else
 			castl(current);
 	}
 }
-void castl(Node* &current)
+void castl(node* &current)
 {
-	Node* currentnext = current->Next;
-	Node* q1 = current;
-	Node* q2 = currentnext;
+	node* currentnext = current->next;
+	node* q1 = current;
+	node* q2 = currentnext;
 	current = q2;
 	currentnext = q1;
-	currentnext->Next = current->Next;
-	current->Next = currentnext;
-	current->Prev = currentnext->Prev;
-	currentnext->Prev = current;
-	currentnext = current->Next;
-	currentnext->Next->Prev = currentnext;
-	current->Prev->Next = current;
+	currentnext->next = current->next;
+	current->next = currentnext;
+	current->prev = currentnext->prev;
+	currentnext->prev = current;
+	currentnext = current->next;
+	currentnext->next->prev = currentnext;
+	current->prev->next = current;
 }
 void Out_only_Fish(container &c, ofstream &ofst)
 {
-	Node* current = c.Top;
+	node* current = c.Top;
 	for (int i = 0; i < c.count; i++)
 	{
 		ofst << i << ": ";
@@ -165,7 +165,7 @@ void Out_only_Fish(container &c, ofstream &ofst)
 		{
 			ofst << endl;
 		}
-		current = current->Next;
+		current = current->next;
 
 	}
 }

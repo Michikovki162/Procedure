@@ -3,7 +3,7 @@
 #include <fstream>
 #include <cstring>
 using namespace std;
-void OutFish(Fish *p, ofstream &ofst)
+void Out_Fish(fish *p, ofstream &ofst)
 {
 	string placeStrings[] = { "Река ","Озеро ","Море ","Океан " };
 	int x = (int)p->type;
@@ -15,7 +15,7 @@ void OutFish(Fish *p, ofstream &ofst)
 	}
 	ofst << "Место обитания: " << placeStrings[x].data() << endl;
 }
-Fish* InFish(Fish * p, ifstream & ifst)
+fish* In_Fish(fish * p, ifstream & ifst)
 {
 	int x;
 	ifst >> x;
@@ -25,6 +25,6 @@ Fish* InFish(Fish * p, ifstream & ifst)
 		system("pause");
 		exit(1);
 	}
-	p->type = (Fish::place)x;
+	p->type = (fish::place)x;
 	return p;
 }

@@ -3,7 +3,7 @@
 #include <fstream>
 #include "Animal.h"
 using namespace std;
-struct Fish 
+struct fish 
 {
 	enum place
 	{
@@ -14,6 +14,6 @@ struct Fish
 	}type;
 };
 
-void OutFish(Fish *p, ofstream &ofst);
-Fish* InFish(Fish * p, ifstream & ifst);
+void Out_Fish(fish *p, ofstream &ofst);
+fish* In_Fish(fish * p, ifstream & ifst);
 #endif

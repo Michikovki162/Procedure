@@ -7,24 +7,24 @@
 #include <fstream>
 #include "string"
 using namespace std;
-Animal * In(ifstream &ifst)
+animal * In(ifstream &ifst)
 {
-	Animal *s = new Animal;
+	animal *s = new animal;
 	int key;
 	ifst >> key;
 	if (key == 1)
 	{
-		Fish* p = new Fish;
+		fish* p = new fish;
 		s->key = FISH;
-		s->obj = (void*)InFish(p, ifst);
+		s->obj = (void*)In_Fish(p, ifst);
 		ifst >> s->name;
 		ifst >> s->age;
 		return s;
 	}
 	else if (key == 2)
 	{
-		Bird* t = new Bird;
-		s->obj = (void*)InBird(t, ifst);
+		bird* t = new bird;
+		s->obj = (void*)In_Bird(t, ifst);
 		s->key = BIRD;
 		ifst >> s->name;
 		ifst >> s->age;
@@ -32,8 +32,8 @@ Animal * In(ifstream &ifst)
 	}
 	else if (key == 3)
 	{
-		Beast* b = new Beast;
-		s->obj = (void*)InBeast(b, ifst);
+		beast* b = new beast;
+		s->obj = (void*)In_Beast(b, ifst);
 		s->key = BEAST;
 		ifst >> s->name;
 		return s;
@@ -43,36 +43,36 @@ Animal * In(ifstream &ifst)
 		return 0;
 	}
 }
-void Out(Animal *s, ofstream &ofst)
+void Out(animal *s, ofstream &ofst)
 {
 	switch (s->key)
 	{
 	case FISH:
 		ofst << "Это рыба. Название: " << s->name << endl;
 		ofst << "Возраст: " << s->age << endl;
-		OutFish((Fish*)s->obj, ofst);
+		Out_Fish((fish*)s->obj, ofst);
 		break;
 	case BIRD:
 		ofst << "Это птица. Название: " << s->name << endl;
 		ofst << "Возраст: " << s->age << endl;
-		OutBird((Bird*)s->obj, ofst);
+		Out_Bird((bird*)s->obj, ofst);
 		break;
 	case BEAST:
 		ofst << "Это зверь. Название: " << s->name << endl;
 		ofst << "Возраст: " << s->age << endl;
-		OutBeast((Beast*)s->obj, ofst);
+		Out_Beast((beast*)s->obj, ofst);
 		break;
 	default:
 		cout << "Некорректное животное " << endl;
 	}
 }
-bool Compare(Animal * first, Animal *second)
+bool Compare(animal * first, animal *second)
 {
-	if (namelength(*first) < namelength(*second) != true && namelength(*first) < namelength(*second) != false)
+	if (Name_length(*first) < Name_length(*second) != true && Name_length(*first) < Name_length(*second) != false)
 	{
 		cout << "Произошла ошибка при сравнении длин названий\n";
 		system("pause");
 		exit(1);
 	}
-	return namelength(*first) < namelength(*second);
+	return Name_length(*first) < Name_length(*second);
 }

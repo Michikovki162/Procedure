@@ -3,7 +3,7 @@
 #include <fstream>
 #include "Animal.h"
 using namespace std;
-struct Beast
+struct beast
 {
 	enum food
 	{
@@ -13,6 +13,6 @@ struct Beast
 	}type;
 };
 
-void OutBeast(Beast *b, ofstream &ofst);
-Beast* InBeast(Beast * b, ifstream & ifst);
+void Out_Beast(beast *b, ofstream &ofst);
+beast* In_Beast(beast * b, ifstream & ifst);
 #endif
